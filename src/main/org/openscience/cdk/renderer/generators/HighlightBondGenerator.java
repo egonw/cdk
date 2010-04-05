@@ -38,7 +38,9 @@ public class HighlightBondGenerator extends BasicBondGenerator
     public HighlightBondGenerator() {}
     
     private boolean shouldHighlight(IBond bond, RendererModel model) {
-        return !super.bindsHydrogen(bond) || model.getShowExplicitHydrogens();
+        return !super.bindsHydrogen(bond) || model.getRenderingParameter(
+			BasicAtomGenerator.ShowExplicitHydrogens.class
+		).getValue();
     }
 
     public IRenderingElement generate(IAtomContainer ac, RendererModel model) {

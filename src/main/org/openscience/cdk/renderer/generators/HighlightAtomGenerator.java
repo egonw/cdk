@@ -38,7 +38,9 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
     public HighlightAtomGenerator() {}
     
     private boolean shouldHighlight(IAtom atom, RendererModel model) {
-        return !super.isHydrogen(atom) || model.getShowExplicitHydrogens();
+        return !super.isHydrogen(atom) || model.getRenderingParameter(
+			BasicAtomGenerator.ShowExplicitHydrogens.class
+		).getValue();
     }
 
     public IRenderingElement generate(IAtomContainer ac, RendererModel model) {
