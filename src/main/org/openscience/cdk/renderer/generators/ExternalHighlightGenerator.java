@@ -38,6 +38,7 @@ import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.LineElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicBondGenerator.BondWidth;
+import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
 
 /**
  * @cdk.module rendercontrol
@@ -62,14 +63,16 @@ public class ExternalHighlightGenerator implements IGenerator {
 
     public IRenderingElement generate(IAtom atom, RendererModel model) {
         Point2d p = atom.getPoint2d();
-        double r = model.getHighlightDistance() / model.getScale();
+        double r = model.getHighlightDistance() /
+                   model.getRenderingParameter(Scale.class).getValue();
         return new OvalElement(p.x, p.y, r, model.getExternalHighlightColor());
     }
 
     public IRenderingElement generate(IBond bond, RendererModel model) {
         Point2d p1 = bond.getAtom(0).getPoint2d();
         Point2d p2 = bond.getAtom(1).getPoint2d();
-        double w = model.getRenderingParameter(BondWidth.class).getValue() / model.getScale();
+        double w = model.getRenderingParameter(BondWidth.class).getValue() /
+                   model.getRenderingParameter(Scale.class).getValue();
         return new LineElement(
                 p1.x, p1.y, p2.x, p2.y, w, model.getExternalHighlightColor());
     }

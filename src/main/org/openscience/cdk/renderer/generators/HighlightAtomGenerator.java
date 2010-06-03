@@ -28,6 +28,7 @@ import org.openscience.cdk.renderer.RendererModel;
 import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
+import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
 
 /**
  * @cdk.module rendercontrol
@@ -50,7 +51,8 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
             
             // the element size has to be scaled to model space 
             // so that it can be scaled back to screen space...
-            double radius = model.getHighlightDistance() / model.getScale();
+            double radius = model.getHighlightDistance() /
+                            model.getRenderingParameter(Scale.class).getValue();
             boolean filled = model.getHighlightShapeFilled();
             Color highlightColor = model.getHoverOverColor(); 
             return new OvalElement(p.x, p.y, radius, filled, highlightColor);

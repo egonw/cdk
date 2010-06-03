@@ -28,6 +28,7 @@ import org.openscience.cdk.renderer.RendererModel;
 import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
+import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
 
 /**
  * @cdk.module rendercontrol
@@ -48,7 +49,8 @@ public class HighlightBondGenerator extends BasicBondGenerator
         if (bond != null && shouldHighlight(bond, model)) {
             super.ringSet = super.getRingSet(ac);
             
-            double r = model.getHighlightDistance() / model.getScale();
+            double r = model.getHighlightDistance() /
+                       model.getRenderingParameter(Scale.class).getValue();
             Color hColor = model.getHoverOverColor();
             Point2d p = bond.get2DCenter();
             boolean filled = model.getHighlightShapeFilled();
