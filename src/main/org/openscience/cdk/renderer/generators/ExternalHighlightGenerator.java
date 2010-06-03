@@ -24,7 +24,8 @@
  */
 package org.openscience.cdk.renderer.generators;
 
-import java.util.Collections;
+import java.awt.Color;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.vecmath.Point2d;
@@ -39,11 +40,24 @@ import org.openscience.cdk.renderer.elements.LineElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicBondGenerator.BondWidth;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
+import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
 /**
  * @cdk.module rendercontrol
  */
 public class ExternalHighlightGenerator implements IGenerator {
+
+	/**
+	 * The color used to highlight external selections.
+	 */
+    public static class ExternalHighlightColor extends
+    AbstractGeneratorParameter<Color> {
+    	public Color getDefault() {
+    		return Color.gray;
+    	}
+    }
+    private IGeneratorParameter<Color> externalHighlightColor =
+    	new ExternalHighlightColor();
 
     public ExternalHighlightGenerator() {}
 
@@ -65,7 +79,7 @@ public class ExternalHighlightGenerator implements IGenerator {
         Point2d p = atom.getPoint2d();
         double r = model.getHighlightDistance() /
                    model.getRenderingParameter(Scale.class).getValue();
-        return new OvalElement(p.x, p.y, r, model.getExternalHighlightColor());
+        return new OvalElement(p.x, p.y, r, externalHighlightColor.getValue());
     }
 
     public IRenderingElement generate(IBond bond, RendererModel model) {
@@ -74,11 +88,15 @@ public class ExternalHighlightGenerator implements IGenerator {
         double w = model.getRenderingParameter(BondWidth.class).getValue() /
                    model.getRenderingParameter(Scale.class).getValue();
         return new LineElement(
-                p1.x, p1.y, p2.x, p2.y, w, model.getExternalHighlightColor());
+                p1.x, p1.y, p2.x, p2.y, w, externalHighlightColor.getValue());
     }
 
     public List<IGeneratorParameter<?>> getParameters() {
-        return Collections.emptyList();
+    	return Arrays.asList(
+            new IGeneratorParameter<?>[] {
+            	externalHighlightColor
+            }
+    	);
     }
 
 }
