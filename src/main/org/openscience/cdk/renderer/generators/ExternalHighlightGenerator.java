@@ -24,7 +24,6 @@
  */
 package org.openscience.cdk.renderer.generators;
 
-import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,30 +33,18 @@ import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.renderer.RendererModel;
+import org.openscience.cdk.renderer.RendererModel.ExternalHighlightColor;
 import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.LineElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicBondGenerator.BondWidth;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
-import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
 /**
  * @cdk.module rendercontrol
  */
 public class ExternalHighlightGenerator implements IGenerator {
-
-	/**
-	 * The color used to highlight external selections.
-	 */
-    public static class ExternalHighlightColor extends
-    AbstractGeneratorParameter<Color> {
-    	public Color getDefault() {
-    		return Color.gray;
-    	}
-    }
-    private IGeneratorParameter<Color> externalHighlightColor =
-    	new ExternalHighlightColor();
 
     public ExternalHighlightGenerator() {}
 
@@ -79,7 +66,9 @@ public class ExternalHighlightGenerator implements IGenerator {
         Point2d p = atom.getPoint2d();
         double r = model.getHighlightDistance() /
                    model.getRenderingParameter(Scale.class).getValue();
-        return new OvalElement(p.x, p.y, r, externalHighlightColor.getValue());
+        return new OvalElement(p.x, p.y, r,
+        	model.getRenderingParameter(ExternalHighlightColor.class).getValue()
+        );
     }
 
     public IRenderingElement generate(IBond bond, RendererModel model) {
@@ -88,13 +77,14 @@ public class ExternalHighlightGenerator implements IGenerator {
         double w = model.getRenderingParameter(BondWidth.class).getValue() /
                    model.getRenderingParameter(Scale.class).getValue();
         return new LineElement(
-                p1.x, p1.y, p2.x, p2.y, w, externalHighlightColor.getValue());
+            p1.x, p1.y, p2.x, p2.y, w,
+            model.getRenderingParameter(ExternalHighlightColor.class).getValue()
+        );
     }
 
     public List<IGeneratorParameter<?>> getParameters() {
     	return Arrays.asList(
             new IGeneratorParameter<?>[] {
-            	externalHighlightColor
             }
     	);
     }
