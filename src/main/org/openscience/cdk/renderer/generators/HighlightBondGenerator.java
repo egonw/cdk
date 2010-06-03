@@ -29,6 +29,7 @@ import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
+import org.openscience.cdk.renderer.generators.HighlightAtomGenerator.HoverOverColor;
 
 /**
  * @cdk.module rendercontrol
@@ -51,7 +52,8 @@ public class HighlightBondGenerator extends BasicBondGenerator
             
             double r = model.getHighlightDistance() /
                        model.getRenderingParameter(Scale.class).getValue();
-            Color hColor = model.getHoverOverColor();
+            Color hColor = model.getRenderingParameter(HoverOverColor.class).
+            	getValue();
             Point2d p = bond.get2DCenter();
             boolean filled = model.getHighlightShapeFilled();
             return new OvalElement(p.x, p.y, r, filled, hColor);
