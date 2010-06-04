@@ -32,6 +32,7 @@ import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
+import org.openscience.cdk.renderer.generators.HighlightBondGenerator.HighlightBondShapeFilled;
 import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
 /**
@@ -51,7 +52,27 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
     }
     private IGeneratorParameter<Color> hoverOverColor =
     	new HoverOverColor();
+    
+    /**
+     * The maximum distance on the screen the mouse pointer has to be to
+     * highlight an atom.
+     */
+    public static class HighlightAtomDistance extends 
+                        AbstractGeneratorParameter<Double> {
+        public Double getDefault() {
+            return 8.0;
+        }
+    }
+    private HighlightAtomDistance highlightAtomDistance;
 
+    public static class HighlightAtomShapeFilled extends 
+                        AbstractGeneratorParameter<Boolean> {
+        public Boolean getDefault() {
+            return Boolean.FALSE;
+        }
+    }
+    private HighlightBondShapeFilled highlightAtomShapeFilled;
+    
     public HighlightAtomGenerator() {}
     
     private boolean shouldHighlight(IAtom atom, RendererModel model) {
@@ -67,9 +88,12 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
             
             // the element size has to be scaled to model space 
             // so that it can be scaled back to screen space...
-            double radius = model.getHighlightDistance() /
+            double radius = 
+               model.getRenderingParameter(HighlightAtomDistance.class).getValue() /
                             model.getRenderingParameter(Scale.class).getValue();
-            boolean filled = model.getHighlightShapeFilled();
+            boolean filled = 
+                model.getRenderingParameter(
+                        HighlightAtomShapeFilled.class).getValue();
             Color highlightColor = hoverOverColor.getValue(); 
             return new OvalElement(p.x, p.y, radius, filled, highlightColor);
         }
@@ -80,7 +104,9 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
     public List<IGeneratorParameter<?>> getParameters() {
         return Arrays.asList(
             new IGeneratorParameter<?>[] {
-                hoverOverColor
+                hoverOverColor,
+                highlightAtomDistance,
+                highlightAtomShapeFilled
             }
         );
     }
