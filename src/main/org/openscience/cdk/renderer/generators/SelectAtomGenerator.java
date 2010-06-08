@@ -22,7 +22,6 @@ package org.openscience.cdk.renderer.generators;
 
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import javax.vecmath.Point2d;
@@ -63,7 +62,7 @@ public class SelectAtomGenerator implements IGenerator<IAtomContainer> {
         }
     }
     
-    private SelectionRadius selectionRadius;
+    private SelectionRadius selectionRadius = new SelectionRadius();
     
     public static class SelectionAtomColor extends 
                         AbstractGeneratorParameter<Color> {
@@ -71,7 +70,7 @@ public class SelectAtomGenerator implements IGenerator<IAtomContainer> {
             return Color.LIGHT_GRAY;
         }
     }
-    private SelectionAtomColor selectionAtomColor;
+    private SelectionAtomColor selectionAtomColor = new SelectionAtomColor();
     
     private boolean autoUpdateSelection = true;
 

@@ -24,12 +24,10 @@ import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
 
-
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.renderer.RendererModel;
 import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
-import org.openscience.cdk.renderer.generators.SelectAtomGenerator.SelectionAtomColor;
 import org.openscience.cdk.renderer.generators.SelectAtomGenerator.SelectionRadius;
 import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 import org.openscience.cdk.renderer.selection.IChemObjectSelection;
@@ -46,7 +44,7 @@ public class SelectBondGenerator extends BasicBondGenerator {
             return Color.LIGHT_GRAY;
         }
     }
-    private SelectionAtomColor selectionBondColor;
+    private SelectionBondColor selectionBondColor = new SelectionBondColor();
 
     private boolean autoUpdateSelection = true;
 

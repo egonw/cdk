@@ -32,7 +32,6 @@ import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
-import org.openscience.cdk.renderer.generators.HighlightBondGenerator.HighlightBondShapeFilled;
 import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
 /**
@@ -63,7 +62,8 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
             return 8.0;
         }
     }
-    private HighlightAtomDistance highlightAtomDistance;
+    private HighlightAtomDistance highlightAtomDistance =
+    	new HighlightAtomDistance();
 
     public static class HighlightAtomShapeFilled extends 
                         AbstractGeneratorParameter<Boolean> {
@@ -71,8 +71,9 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
             return Boolean.FALSE;
         }
     }
-    private HighlightBondShapeFilled highlightAtomShapeFilled;
-    
+    private HighlightAtomShapeFilled highlightAtomShapeFilled =
+    	new HighlightAtomShapeFilled();
+
     public HighlightAtomGenerator() {}
     
     private boolean shouldHighlight(IAtom atom, RendererModel model) {

@@ -40,7 +40,6 @@ import org.openscience.cdk.renderer.elements.LineElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicBondGenerator.BondWidth;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
-import org.openscience.cdk.renderer.generators.HighlightAtomGenerator.HighlightAtomDistance;
 import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
 /**
@@ -58,7 +57,8 @@ public class ExternalHighlightGenerator implements IGenerator<IAtomContainer> {
             return 8.0;
         }
     }
-    private ExternalHighlightDistance externalHighlightDistance;
+    private ExternalHighlightDistance externalHighlightDistance =
+    	new ExternalHighlightDistance();
 
     public ExternalHighlightGenerator() {}
 

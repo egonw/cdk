@@ -31,7 +31,6 @@ import org.openscience.cdk.renderer.elements.ElementGroup;
 import org.openscience.cdk.renderer.elements.IRenderingElement;
 import org.openscience.cdk.renderer.elements.OvalElement;
 import org.openscience.cdk.renderer.generators.BasicSceneGenerator.Scale;
-import org.openscience.cdk.renderer.generators.HighlightAtomGenerator.HighlightAtomDistance;
 import org.openscience.cdk.renderer.generators.HighlightAtomGenerator.HoverOverColor;
 import org.openscience.cdk.renderer.generators.parameter.AbstractGeneratorParameter;
 
@@ -51,7 +50,8 @@ public class HighlightBondGenerator extends BasicBondGenerator
             return 8.0;
         }
     }
-    private HighlightAtomDistance highlightBondDistance;
+    private HighlightBondDistance highlightBondDistance =
+    	new HighlightBondDistance();
     
     public static class HighlightBondShapeFilled extends 
                         AbstractGeneratorParameter<Boolean> {
@@ -60,7 +60,8 @@ public class HighlightBondGenerator extends BasicBondGenerator
         }
     }
     
-    private HighlightBondShapeFilled highlightBondShapeFilled;
+    private HighlightBondShapeFilled highlightBondShapeFilled =
+    	new HighlightBondShapeFilled();
     
     public HighlightBondGenerator() {}
     
