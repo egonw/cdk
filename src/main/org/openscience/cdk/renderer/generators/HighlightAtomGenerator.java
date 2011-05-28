@@ -75,7 +75,7 @@ public class HighlightAtomGenerator extends BasicAtomGenerator
     	new HighlightAtomShapeFilled();
 
     public HighlightAtomGenerator() {}
-    
+
     private boolean shouldHighlight(IAtom atom, RendererModel model) {
         return !super.isHydrogen(atom) || model.getParameter(
 			BasicAtomGenerator.ShowExplicitHydrogens.class
