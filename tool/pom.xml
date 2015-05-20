@@ -26,6 +26,7 @@
         <module>structgen</module>
         <module>tautomer</module>
         <module>model</module>
+        <module>measure</module>
     </modules>
     <packaging>pom</packaging>
     <artifactId>cdk-tool</artifactId>
