@@ -1,4 +1,4 @@
-/* Copyright (C) 2013  Egon Willighagen <egonw@users.sf.net>
+/* Copyright (C) 2013-2015  Egon Willighagen <egonw@users.sf.net>
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,10 +18,33 @@ package org.openscience.cdk.measurement;
 
 import java.net.URI;
 
+/**
+ * Chemical, physical, or biological phenomenon that is measured in an assay
+ * experiment. Examples include temperature, cell survival, and zeta potential.
+ *
+ * @author egonw
+ */
 public interface IEndPoint {
 
+	/**
+	 * End points can have a parent, reflecting some hierarchy.
+	 *
+	 * @return the parent {@link IEndPoint}
+	 */
 	public IEndPoint getParent();
+
+	/**
+	 * Get a string representation of name of this endpoint.
+	 *
+	 * @return a {@link String} with the name of this endpoint.
+	 */
 	public String getLabel();
+
+	/**
+	 * Get the ontology identifier for this endpoint.
+	 *
+	 * @return a {@link URI} representing the ontology identifier
+	 */
 	public URI getURI();
 	
 }
