@@ -1,4 +1,4 @@
-/* Copyright (C) 2011-2013  Egon Willighagen <egonw@users.sf.net>
+/* Copyright (C) 2011-2015  Egon Willighagen <egonw@users.sf.net>
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -16,13 +16,34 @@
  */
 package org.openscience.cdk.measurement;
 
-import com.github.jqudt.Unit;
-
+/**
+ * Interface to represent measurement values that are defined as a range.
+ *
+ * @author egonw
+ * @cdk.githash
+ */
 public interface IMeasurementRange extends IMeasurement {
 
-    public void setValues(double minimum, double maximum, String unit);
-	public void setValues(double minimum, double maximum, Unit unit);
+	/**
+	 * Sets the range of values for this measurement.
+	 *
+	 * @param minimum The minimum value specifying the lower value of the range.
+	 * @param maximum The maximum value specifying the upper value of the range.
+	 */
+    public IMeasurement setValues(double minimum, double maximum);
+
+    /**
+     * Returns the lower value of the value range.
+     *
+     * @return a double
+     */
 	public double getMinimumValue();
+
+    /**
+     * Returns the upper value of the value range.
+     *
+     * @return a double
+     */
 	public double getMaximumValue();
 
 }

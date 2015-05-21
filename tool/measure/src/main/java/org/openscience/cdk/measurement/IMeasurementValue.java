@@ -1,4 +1,4 @@
-/* Copyright (C) 2011-2013  Egon Willighagen <egonw@users.sf.net>
+/* Copyright (C) 2011-2015  Egon Willighagen <egonw@users.sf.net>
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -16,12 +16,33 @@
  */
 package org.openscience.cdk.measurement;
 
-import com.github.jqudt.Unit;
 
+/**
+ * Interface to represent measurement values that are defined as a single value
+ * and an optional error (on the same scale as the measurement and not a percentage).
+ *
+ * @author egonw
+ * @cdk.githash
+ */
 public interface IMeasurementValue extends IErrorlessMeasurementValue {
 
-    public void setValue(double value, double error, String nm);
-	public void setValue(double value, double error, Unit nm);
-	public double getError();
+	/**
+	 * Sets the value for this measurement. The error is optional.
+	 * The error must be an absolute value, not a percentage.
+	 *
+	 * @param value the measured value
+	 * @param error the error on the measured value as absolute number
+	 */
+    public void setValue(double value, double error);
+
+    /**
+     * Returns the measure value.
+     */
+    public double getValue();
+
+    /**
+     * Returns the error on the measurement.
+     */
+    public double getError();
 
 }
