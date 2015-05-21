@@ -30,20 +30,20 @@ public interface IMeasurementRange extends IMeasurement {
 	 * @param minimum The minimum value specifying the lower value of the range.
 	 * @param maximum The maximum value specifying the upper value of the range.
 	 */
-    public IMeasurement setValues(double minimum, double maximum);
+    public IMeasurement setValues(Double minimum, Double maximum);
 
     /**
      * Returns the lower value of the value range.
      *
      * @return a double
      */
-	public double getMinimumValue();
+	public Double getMinimumValue();
 
     /**
      * Returns the upper value of the value range.
      *
      * @return a double
      */
-	public double getMaximumValue();
+	public Double getMaximumValue();
 
 }

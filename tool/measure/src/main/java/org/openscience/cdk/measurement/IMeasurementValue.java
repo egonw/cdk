@@ -24,25 +24,25 @@ package org.openscience.cdk.measurement;
  * @author egonw
  * @cdk.githash
  */
-public interface IMeasurementValue extends IErrorlessMeasurementValue {
+public interface IMeasurementValue extends IMeasurement {
 
 	/**
 	 * Sets the value for this measurement. The error is optional.
 	 * The error must be an absolute value, not a percentage.
 	 *
 	 * @param value the measured value
-	 * @param error the error on the measured value as absolute number
+	 * @param error the error on the measured value as absolute number (may be null)
 	 */
-    public void setValue(double value, double error);
+    public void setValue(Double value, Double error);
 
     /**
      * Returns the measure value.
      */
-    public double getValue();
+    public Double getValue();
 
     /**
-     * Returns the error on the measurement.
+     * Returns the error on the measurement. May be null.
      */
-    public double getError();
+    public Double getError();
 
 }
