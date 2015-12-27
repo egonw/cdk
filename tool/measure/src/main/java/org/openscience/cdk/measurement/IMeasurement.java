@@ -45,14 +45,14 @@ public interface IMeasurement {
 	 *
 	 * @param endPoint a user defined endpoint implemented as a {@link IEndPoint} class.
 	 */
-	public void setEndPoint(IEndPoint endPoint);
+	void setEndPoint(IEndPoint endPoint);
 
 	/**
 	 * Returns the endpoint for this measurement.
 	 *
 	 * @return the endpoint of this measurement.
 	 */
-	public IEndPoint getEndPoint();
+	IEndPoint getEndPoint();
 
 	/**
 	 * Sets the unit for this measurement. The unit is a class extending the
@@ -60,30 +60,30 @@ public interface IMeasurement {
 	 *
 	 * @param unit
 	 */
-	public void setUnit(Unit unit);
+	void setUnit(Unit unit);
 
 	/**
 	 * Returns the unit of this measurement.
 	 *
 	 * @return
 	 */
-	public Unit getUnit();
+	Unit getUnit();
 
 	// FIXME: what was this about??
-	public String getString();
+	String getString();
 
 	/**
 	 * Return the list of conditions under which this measurement was made.
 	 *
 	 * @return an {@link List} of {@link IMeasurement}s.
 	 */
-	public List<IMeasurement> getConditions();
+	List<IMeasurement> getConditions();
 
 	/**
 	 * Sets the list of conditions under which this measurement was made.
 	 *
 	 * @param conditions the {@link List} of {@link IMeasurement}s.
 	 */
-	public void setConditions(List<IMeasurement> conditions);
+	void setConditions(List<IMeasurement> conditions);
 
 }

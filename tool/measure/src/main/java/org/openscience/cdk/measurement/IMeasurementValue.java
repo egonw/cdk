@@ -33,16 +33,16 @@ public interface IMeasurementValue extends IMeasurement {
 	 * @param value the measured value
 	 * @param error the error on the measured value as absolute number (may be null)
 	 */
-    public void setValue(Double value, Double error);
+    void setValue(Double value, Double error);
 
     /**
      * Returns the measure value.
      */
-    public Double getValue();
+    Double getValue();
 
     /**
      * Returns the error on the measurement. May be null.
      */
-    public Double getError();
+    Double getError();
 
 }

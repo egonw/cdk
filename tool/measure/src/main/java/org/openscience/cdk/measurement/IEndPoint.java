@@ -31,20 +31,20 @@ public interface IEndPoint {
 	 *
 	 * @return the parent {@link IEndPoint}
 	 */
-	public IEndPoint getParent();
+	IEndPoint getParent();
 
 	/**
 	 * Get a string representation of name of this endpoint.
 	 *
 	 * @return a {@link String} with the name of this endpoint.
 	 */
-	public String getLabel();
+	String getLabel();
 
 	/**
 	 * Get the ontology identifier for this endpoint.
 	 *
 	 * @return a {@link URI} representing the ontology identifier
 	 */
-	public URI getURI();
+	URI getURI();
 	
 }
