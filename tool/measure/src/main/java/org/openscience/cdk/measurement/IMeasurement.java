@@ -80,10 +80,10 @@ public interface IMeasurement {
 	List<IMeasurement> getConditions();
 
 	/**
-	 * Sets the list of conditions under which this measurement was made.
+	 * Adds a new conditions under which this measurement was made.
 	 *
-	 * @param conditions the {@link List} of {@link IMeasurement}s.
+	 * @param condition the condition to add
 	 */
-	void setConditions(List<IMeasurement> conditions);
+	void addCondition(IMeasurement condition);
 
 }
