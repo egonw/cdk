@@ -15,6 +15,7 @@
         <module>renderawt</module>
         <module>renderbasic</module>
         <module>renderextra</module>
+        <module>rendercontrol</module>
     </modules>
     <packaging>pom</packaging>
     <artifactId>cdk-display</artifactId>

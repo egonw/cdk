@@ -18,13 +18,12 @@
  */
 package org.openscience.cdk.renderer.generators;
 
-
 import java.awt.Color;
 
 import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 
-import org.openscience.cdk.geometry.GeometryTools;
+import org.openscience.cdk.geometry.GeometryUtil;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.renderer.RendererModel;
@@ -61,7 +60,7 @@ public class MergeAtomsGenerator extends BasicAtomGenerator
     		Vector2d vec = new Vector2d();
     		vec.sub( p2, p1 );
 
-    		Vector2d per = GeometryTools.calculatePerpendicularUnitVector( p1, p2 );
+    		Vector2d per = GeometryUtil.calculatePerpendicularUnitVector( p1, p2 );
     		per.scale( radius );
     		Vector2d per2 = new Vector2d();
     		per2.scale( -1 ,per);
