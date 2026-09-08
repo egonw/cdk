@@ -18,7 +18,6 @@
         <module>ionpot</module>
         <module>qsaratomic</module>
         <module>qsarbond</module>
-        <module>qsarcml</module>
         <module>qsarionpot</module>
         <module>qsarmolecular</module>
         <module>qsarprotein</module>

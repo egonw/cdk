@@ -92,7 +92,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>cdk-libiocml</artifactId>
+            <artifactId>cdk-cml</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -197,11 +197,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>cdk-qsarcml</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>cdk-qsarionpot</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
@@ -238,16 +233,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>cdk-qm</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>cdk-libiomd</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>cdk-pdbcml</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
