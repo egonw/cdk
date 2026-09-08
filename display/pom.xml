@@ -12,9 +12,6 @@
     <name>cdk-display</name>
     <modules>
         <module>render</module>
-        <module>renderawt</module>
-        <module>renderbasic</module>
-        <module>renderextra</module>
     </modules>
     <packaging>pom</packaging>
     <artifactId>cdk-display</artifactId>
