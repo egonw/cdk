@@ -16,12 +16,8 @@
         <module>signature</module>
         <module>qsar</module>
         <module>ionpot</module>
-        <module>qsaratomic</module>
-        <module>qsarbond</module>
         <module>qsarionpot</module>
-        <module>qsarmolecular</module>
         <module>qsarprotein</module>
-        <module>qsarsubstance</module>
     </modules>
     <packaging>pom</packaging>
     <artifactId>cdk-descriptor</artifactId>
