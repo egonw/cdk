@@ -23,7 +23,6 @@
         <module>sdg</module>
         <module>smarts</module>
         <module>structgen</module>
-        <module>tautomer</module>
         <module>model</module>
     </modules>
     <packaging>pom</packaging>

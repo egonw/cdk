@@ -20,7 +20,6 @@
         <module>libiomd</module>
         <module>pdb</module>
         <module>pdbcml</module>
-        <module>rinchi</module>
         <module>smiles</module>
     </modules>
     <packaging>pom</packaging>
